@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSignUpUserMutation } from "../features/api/apiAuth";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
@@ -107,7 +108,13 @@ const SignUp = () => {
                            hover:opacity-90 active:scale-95 
                            transition-all duration-300 shadow-md"
                   >
-                    sign up
+                    {
+            isLoading ? 
+            <> 
+            <Loader2 className="mr-4 animate-spin" /> please wait  
+            </> 
+            : "Sign Up"
+          } 
                   </button>
 
                   <p className="text-center text-sm text-gray-700 mt-4">

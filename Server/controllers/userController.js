@@ -33,7 +33,7 @@ export const SignUp = async (req, res) => {
       message: "user created successfully",
     });
   } catch (error) {
-    console.log("error occured in signup : ", error);
+    console.log("error occured signing up : ", error);
     return res.status(500).json({
       success: false,
       message: "registeration failed",
@@ -47,7 +47,7 @@ export const LogIn = async (req, res) => {
     if (!email || !password) {
       return res.status(400).json({
         success: false,
-        message: "all fiels are required",
+        message: "all fields are required",
       });
     }
     const user = await User.findOne({ email });
@@ -67,7 +67,7 @@ export const LogIn = async (req, res) => {
 
     generateTOken(res, user, `wellcome back ${user.name}`);
   } catch (error) {
-    console.log("error occured in signup : ", error);
+    console.log("error occured in login : ", error);
     return res.status(500).json({
       success: false,
       message: "logging in failed",
